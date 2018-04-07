@@ -25,7 +25,7 @@ function ContestResponse(){
 function recur(values, counter){
     for(var i=2;i<=nbcrepe;i++){
         var v = retourne(values, i);
-        if(issorted(v)){    
+        if(issorted(v)){
             if(minreturns > counter+1){
                 minreturns = counter+1;
             }
