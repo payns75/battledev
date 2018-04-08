@@ -4,16 +4,19 @@ function ListNode(val) {
 }
 
 function initlist(vals) {
-    var r = new ListNode(vals[0]);
+    var r = new ListNode(null);
 
-    var f = (i, v) => {
-        if (i < vals.length - 1) {
-            v.next = new ListNode(vals[++i])
-            f(i, v.next)
+    if (vals !== null && vals !== undefined && vals.length > 0) {
+        r.val = vals[0];
+        var f = (i, v) => {
+            if (i < vals.length - 1) {
+                v.next = new ListNode(vals[++i])
+                f(i, v.next)
+            }
         }
-    }
 
-    f(0, r)
+        f(0, r)
+    }
 
     return r;
 }
@@ -22,14 +25,15 @@ function readlist(list) {
     var result = []
 
     var f = (l) => {
-        if (l.val)
+        if (l.val !== null && l.val !== undefined)
             result.push(l.val)
 
         if (l.next)
             f(l.next)
     }
 
-    f(list)
+    if (list)
+        f(list)
 
     return result
 }
